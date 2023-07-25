@@ -24,7 +24,7 @@ services:
       - 443:443/tcp
     environment:
       CERTBOT_EMAIL: luchcko.a@gmail.com
-      DOMAIN: vm2365834.firstbyte.club
+      DOMAIN: addmods.fun
     volumes:
       - ./nginx/conf.d:/etc/nginx/user_conf.d:ro
       - ../mm-admin-front/dist:/usr/share/app
@@ -41,8 +41,8 @@ services:
     environment:
       MINIO_ROOT_USER: luchko
       MINIO_ROOT_PASSWORD: password
-      MINIO_DOMAIN: s3.vm2365834.firstbyte.club
-      MINIO_BROWSER_REDIRECT_URL: https://minio.vm2365834.firstbyte.club
+      MINIO_DOMAIN: s3.addmods.fun
+      MINIO_BROWSER_REDIRECT_URL: https://minio.addmods.fun
     volumes:
       - ./minio/data:/data
     command: server /data --console-address ":9090"
