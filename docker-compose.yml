@@ -1,7 +1,7 @@
 version: '3'
 services:
   cm-back:
-    build: ../counter-mods-api
+    build: ../mm-back
     container_name: cm-back
     ports:
       - 1337:1337
@@ -24,10 +24,10 @@ services:
       - 443:443/tcp
     environment:
       CERTBOT_EMAIL: luchcko.a@gmail.com
-      DOMAIN: 185.102.136.84
+      DOMAIN: vm2365834.firstbyte.club
     volumes:
       - ./nginx/conf.d:/etc/nginx/user_conf.d:ro
-      - ../mods-frontend/dist:/usr/share/app
+      - ../mm-admin-front/dist:/usr/share/app
       - letsencrypt:/etc/letsencrypt
     depends_on:
       - cm-back
@@ -41,8 +41,8 @@ services:
     environment:
       MINIO_ROOT_USER: luchko
       MINIO_ROOT_PASSWORD: password
-      MINIO_DOMAIN: s3.185.102.136.84
-      MINIO_BROWSER_REDIRECT_URL: https://minio.185.102.136.84
+      MINIO_DOMAIN: s3.vm2365834.firstbyte.club
+      MINIO_BROWSER_REDIRECT_URL: https://minio.vm2365834.firstbyte.club
     volumes:
       - ./minio/data:/data
     command: server /data --console-address ":9090"
